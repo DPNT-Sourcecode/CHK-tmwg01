@@ -185,13 +185,22 @@ describe Checkout do
     end
   end
 
-  context 'when SKU is N' do
-    let(:skus) { 'NNNM' }
+  context 'when SKU is P' do
+    let(:skus) { 'PPPPP' }
 
-    it 'has a free M after 3' do
-      expect(subject).to eq 120
+    it 'has a discount every 5 items' do
+      expect(subject).to eq 200
+    end
+  end
+
+  context 'when SKU is Q' do
+    let(:skus) { 'QQQ' }
+
+    it 'has a discount every 3 items' do
+      expect(subject).to eq 80
     end
   end
 end
+
 
 
