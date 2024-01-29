@@ -69,11 +69,11 @@ class Checkout
   def discount_for_f(skus)
     fs = skus.select {|sku| sku == 'F' }
 
-    return 0 if fs.size < 0
 
-    free_bs = fs.size / 2
-    free_bs * @price_table['B']
+    free_bs = fs.size / 3
+    free_bs * @price_table['F']
   end
 
 end
+
 
