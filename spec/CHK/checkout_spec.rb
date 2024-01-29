@@ -145,6 +145,31 @@ describe Checkout do
     end
   end
 
+  context 'when SKU is H' do
+    let(:skus) { 'HHHHHHHHHH' }
+
+    it 'has a discount for 10 items' do
+      expect(subject).to eq 80
+    end
+
+    context 'when there are 5' do
+      let(:skus) { 'HHHHH' }
+
+      it 'has a discount 5 items' do
+        expect(subject).to eq 45
+      end
+    end
+
+    context 'when there are ' do
+      let(:skus) { 'HHHHHHHHHHHHHHH' }
+
+      it 'has a discount 5 items' do
+        expect(subject).to eq 125
+      end
+    end
+  end
+
 end
+
 
 
