@@ -60,7 +60,15 @@ describe Checkout do
       let(:skus) { 'AAAAAA' }
 
       it 'has a discount' do
-        expect(subject).to eq 260
+        expect(subject).to eq 250
+      end
+    end
+
+    context 'when there are 8 As' do
+      let(:skus) { 'AAAAAAAA' }
+
+      it 'has a discount' do
+        expect(subject).to eq 330
       end
     end
 
@@ -114,5 +122,6 @@ describe Checkout do
   end
 
 end
+
 
 
