@@ -52,7 +52,9 @@ class Checkout
   def discount_for_b(skus)
     bs = skus.select {|sku| sku == 'B' }
 
-    bs.count / 2 * 15
+    items_already_with_discount = discount_for_e(skus) / @price_table['B']
+
+    (bs.count - items_already_with_discount) / 2 * 15
   end
 
   def discount_for_e(skus)
@@ -60,10 +62,11 @@ class Checkout
     bs = skus.select {|sku| sku == 'B' }
 
     free_bs = bs.take(es.count / 2).count
-    free_bs * 30
+    free_bs * @price_table['B']
   end
 
 end
+
 
 
 
