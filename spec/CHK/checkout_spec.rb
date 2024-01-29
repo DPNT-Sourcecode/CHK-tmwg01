@@ -10,7 +10,7 @@ describe Checkout do
   end
 
   context 'when skus has an invalid item' do
-    let(:skus) { 'ABCDE' }
+    let(:skus) { 'ABCDZ' }
 
     it 'returns -1' do
       expect(subject).to eq -1
@@ -49,14 +49,14 @@ describe Checkout do
     end
   end
 
-  context 'when there is 3 As' do
+  context 'when there are 3 As' do
     let(:skus) { 'AAA' }
 
     it 'has a discount' do
       expect(subject).to eq 130
     end
 
-    context 'when there is 6 As' do
+    context 'when there are 6 As' do
       let(:skus) { 'AAAAAA' }
 
       it 'has a discount' do
@@ -64,7 +64,7 @@ describe Checkout do
       end
     end
 
-    context 'when there is 3 As and other items' do
+    context 'when there are 3 As and other items' do
       let(:skus) { 'AAABCD' }
 
       it 'has a discount' do
@@ -80,7 +80,7 @@ describe Checkout do
       expect(subject).to eq 45
     end
 
-    context 'when there is 6 As' do
+    context 'when there are 6 As' do
       let(:skus) { 'BBBB' }
 
       it 'has a discount' do
@@ -88,7 +88,7 @@ describe Checkout do
       end
     end
 
-    context 'when there is 3 As and other items' do
+    context 'when there are 3 As and other items' do
       let(:skus) { 'AAABBCD' }
 
       it 'has a discount' do
@@ -97,6 +97,15 @@ describe Checkout do
     end
   end
 
+  context 'when there are 2 Es and 1 B' do
+    let(:skus) { 'EEB' }
+
+    it 'has a discount' do
+      expect(subject).to eq 80
+    end
+  end
+
 end
+
 
 

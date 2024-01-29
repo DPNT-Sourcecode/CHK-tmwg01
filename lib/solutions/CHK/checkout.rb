@@ -49,10 +49,11 @@ class Checkout
     es = skus.select {|sku| sku == 'E' }
 
     free_bs = es.count / 2
-    freebs * 30
+    free_bs * 30
   end
 
 end
+
 
 
 
