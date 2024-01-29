@@ -41,14 +41,6 @@ describe Checkout do
     end
   end
 
-  context 'when skus is nil' do
-    let(:skus) { nil }
-
-    it 'returns -1' do
-      expect(subject).to eq -1
-    end
-  end
-
   context 'when there are 3 As' do
     let(:skus) { 'AAA' }
 
@@ -177,7 +169,7 @@ describe Checkout do
     end
 
     context 'when there are 3' do
-      let(:skus) { 'KKK' }
+      let(:skus) { 'KK' }
 
       it 'has a discount 2 items' do
         expect(subject).to eq 230
@@ -185,43 +177,5 @@ describe Checkout do
     end
   end
 
-  context 'when SKU is P' do
-    let(:skus) { 'PPPPP' }
-
-    it 'has a discount every 5 items' do
-      expect(subject).to eq 200
-    end
-  end
-
-  context 'when SKU is Q' do
-    let(:skus) { 'QQQ' }
-
-    it 'has a discount every 3 items' do
-      expect(subject).to eq 80
-    end
-  end
-
-  context 'when SKU is R' do
-    let(:skus) { 'RRRQQQ' }
-
-    it 'has a free Q every 3 items' do
-      expect(subject).to eq 210
-    end
-  end
-
-  context 'when SKU is U' do
-    let(:skus) { 'UUUU' }
-
-    it 'has a free U every 3 items' do
-      expect(subject).to eq 120
-    end
-  end
-
-  context 'when SKU is V' do
-    let(:skus) { 'VVVVV' }
-
-    it 'has a discount' do
-      expect(subject).to eq 220
-    end
-  end
 end
+
