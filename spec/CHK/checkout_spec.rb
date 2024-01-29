@@ -55,6 +55,39 @@ describe Checkout do
         expect(subject).to eq 260
       end
     end
+
+    context 'when there is 3 As and other items' do
+      let(:skus) { 'AAABCD' }
+
+      it 'has a discount' do
+        expect(subject).to eq 195
+      end
+    end
+  end
+
+  context 'when there is 2 Bs' do
+    let(:skus) { 'BB' }
+
+    it 'has a discount' do
+      expect(subject).to eq 45
+    end
+
+    context 'when there is 6 As' do
+      let(:skus) { 'BBBB' }
+
+      it 'has a discount' do
+        expect(subject).to eq 90
+      end
+    end
+
+    context 'when there is 3 As and other items' do
+      let(:skus) { 'AAABBCD' }
+
+      it 'has a discount' do
+        expect(subject).to eq 210
+      end
+    end
   end
 
 end
+
