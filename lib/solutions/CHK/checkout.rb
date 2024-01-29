@@ -51,8 +51,8 @@ class Checkout
   end
 
   def discounts(skus)
-    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus) + discount_for_k(skus) \
-      + discount_for_n(skus) + discount_for_p(skus) + discount_for_q(skus) + discount_for_r(skus)
+    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus) + discount_for_k(skus) +
+    discount_for_n(skus) + discount_for_p(skus) + discount_for_q(skus) + discount_for_r(skus) + discount_for_u(skus)
   end
 
   def discount_for_a(skus)
@@ -152,7 +152,24 @@ class Checkout
     free_us = us.size / 4
     free_us * @price_table['U']
   end
+
+  def discount_for_v(skus)
+    vs = skus.select {|sku| sku == 'V' }
+
+    discount_groups = vs.each_slice(3).to_a
+
+    return 0 if discount_groups.count == 0
+
+    discount_groups.map do |group|
+      if group.size == 3
+        20
+      else
+        group.size / 2 * 10
+      end
+    end.sum
+  end
 end
+
 
 
 

@@ -216,7 +216,16 @@ describe Checkout do
       expect(subject).to eq 120
     end
   end
+
+  context 'when SKU is V' do
+    let(:skus) { 'VVVVV' }
+
+    it 'has a discount' do
+      expect(subject).to eq 120
+    end
+  end
 end
+
 
 
 
