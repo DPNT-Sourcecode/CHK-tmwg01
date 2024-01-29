@@ -3,7 +3,7 @@ require_solution 'CHK'
 describe Checkout do
   subject { Checkout.new.checkout(skus) }
 
-  let(:skus) { 'ABCD' }
+  let(:skus) { 'ABCDEF' }
 
   it 'sums the price of all items' do
     expect(subject).to eq 115
@@ -130,3 +130,4 @@ describe Checkout do
   end
 
 end
+

@@ -8,6 +8,7 @@ class Checkout
       'C' => 20,
       'D' => 15,
       'E' => 40,
+      'F' => 10,
     }
   end
 
@@ -30,7 +31,7 @@ class Checkout
   end
 
   def discounts(skus)
-    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus)
+    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus)
   end
 
   def discount_for_a(skus)
@@ -65,4 +66,14 @@ class Checkout
     free_bs * @price_table['B']
   end
 
+  def discount_for_f(skus)
+    fs = skus.select {|sku| sku == 'F' }
+
+    return 0 if fs.size < 0
+
+    free_bs = fs.size / 2
+    free_bs * @price_table['B']
+  end
+
 end
+
