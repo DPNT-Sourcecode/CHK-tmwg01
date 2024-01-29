@@ -52,7 +52,7 @@ class Checkout
 
   def discounts(skus)
     discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus) + discount_for_k(skus) +
-    discount_for_n(skus) + discount_for_p(skus) #+ discount_for_q(skus) + discount_for_r(skus) + discount_for_u(skus) + discount_for_v(skus)
+    discount_for_n(skus) + discount_for_p(skus) + discount_for_q(skus) + discount_for_r(skus) + discount_for_u(skus) + discount_for_v(skus)
   end
 
   def discount_for_a(skus)
@@ -168,7 +168,12 @@ class Checkout
       end
     end.sum
   end
+
+  def discount_for_multiproduct(skus)
+
+  end
 end
+
 
 
 

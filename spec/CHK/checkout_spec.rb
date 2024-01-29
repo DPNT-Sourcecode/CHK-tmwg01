@@ -166,14 +166,14 @@ describe Checkout do
     let(:skus) { 'KK' }
 
     it 'has a discount for 2 items' do
-      expect(subject).to eq 150
+      expect(subject).to eq 120
     end
 
     context 'when there are 3' do
       let(:skus) { 'KKK' }
 
       it 'has a discount 2 items' do
-        expect(subject).to eq 230
+        expect(subject).to eq 190
       end
     end
   end
@@ -194,38 +194,39 @@ describe Checkout do
     end
   end
 
-  # context 'when SKU is Q' do
-  #   let(:skus) { 'QQQ' }
+  context 'when SKU is Q' do
+    let(:skus) { 'QQQ' }
 
-  #   it 'has a discount every 3 items' do
-  #     expect(subject).to eq 80
-  #   end
-  # end
+    it 'has a discount every 3 items' do
+      expect(subject).to eq 80
+    end
+  end
 
-  # context 'when SKU is R' do
-  #   let(:skus) { 'RRRQQQ' }
+  context 'when SKU is R' do
+    let(:skus) { 'RRRQQQ' }
 
-  #   it 'has a free Q every 3 items' do
-  #     expect(subject).to eq 210
-  #   end
-  # end
+    it 'has a free Q every 3 items' do
+      expect(subject).to eq 210
+    end
+  end
 
-  # context 'when SKU is U' do
-  #   let(:skus) { 'UUUU' }
+  context 'when SKU is U' do
+    let(:skus) { 'UUUU' }
 
-  #   it 'has a free U every 3 items' do
-  #     expect(subject).to eq 120
-  #   end
-  # end
+    it 'has a free U every 3 items' do
+      expect(subject).to eq 120
+    end
+  end
 
-  # context 'when SKU is V' do
-  #   let(:skus) { 'VVVVV' }
+  context 'when SKU is V' do
+    let(:skus) { 'VVVVV' }
 
-  #   it 'has a discount' do
-  #     expect(subject).to eq 220
-  #   end
-  # end
+    it 'has a discount' do
+      expect(subject).to eq 220
+    end
+  end
 end
+
 
 
 
