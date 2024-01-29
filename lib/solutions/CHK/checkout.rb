@@ -179,7 +179,6 @@ class Checkout
 
     discount_groups.map do |group|
       if group.size == 3
-        puts 'here'
         group.map {|sku| @price_table[sku] }.sum - 45
       else
         0
@@ -187,5 +186,6 @@ class Checkout
     end.sum
   end
 end
+
 
 

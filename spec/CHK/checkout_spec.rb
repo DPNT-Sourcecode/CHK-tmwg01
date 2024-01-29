@@ -227,11 +227,16 @@ describe Checkout do
   end
 
   context 'when SKU is in the group S,T,X,Y,Z' do
-    let(:skus) { 'STXYZ' }
+    let(:skus) { 'STX' }
 
     it 'has 3 items for 45' do
       expect(subject).to eq 45
     end
+
+    it 'has 6 items for 90' do
+      expect(Checkout.new.checkout('STXYZS')).to eq 90
+    end
   end
 end
+
 
