@@ -165,17 +165,18 @@ describe Checkout do
     let(:skus) { 'KK' }
 
     it 'has a discount for 2 items' do
-      expect(subject).to eq 150
+      expect(subject).to eq 120
     end
 
     context 'when there are 3' do
-      let(:skus) { 'KK' }
+      let(:skus) { 'KKK' }
 
       it 'has a discount 2 items' do
-        expect(subject).to eq 230
+        expect(subject).to eq 190
       end
     end
   end
 
 end
+
 
