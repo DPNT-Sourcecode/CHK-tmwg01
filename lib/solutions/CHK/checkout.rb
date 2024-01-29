@@ -6,7 +6,8 @@ class Checkout
       'A' => 50,
       'B' => 30,
       'C' => 20,
-      'D' => 15
+      'D' => 15,
+      'E' => 15,
     }
   end
 
@@ -45,5 +46,6 @@ class Checkout
   end
 
 end
+
 
 
