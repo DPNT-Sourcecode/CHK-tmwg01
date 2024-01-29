@@ -225,4 +225,13 @@ describe Checkout do
       expect(subject).to eq 220
     end
   end
+
+  context 'when SKU is in the group S,T,X,Y,Z' do
+    let(:skus) { 'STXYZ' }
+
+    it 'has 3 items for 45' do
+      expect(subject).to eq 45
+    end
+  end
 end
+

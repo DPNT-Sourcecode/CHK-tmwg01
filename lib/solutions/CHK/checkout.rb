@@ -175,10 +175,11 @@ class Checkout
 
     filtered_products = skus.select {|sku| discount_group.include?(sku) }
 
-    discount_groups = vs.each_slice(3).to_a
+    discount_groups = filtered_products.each_slice(3).to_a
 
     discount_groups.map do |group|
       if group.size == 3
+        puts 'here'
         group.map {|sku| @price_table[sku] }.sum - 45
       else
         0
@@ -186,4 +187,5 @@ class Checkout
     end.sum
   end
 end
+
 
