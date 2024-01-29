@@ -40,13 +40,19 @@ class Checkout
 
     return 0 if discount_groups.count == 0
 
-    as.count / 3 * 20
+    discount_groups.map do |group|
+      if group.size == 5
+        50
+      else
+        group.size / 3 * 20
+      end
+    end.sum
   end
 
   def discount_for_b(skus)
     bs = skus.select {|sku| sku == 'B' }
 
-    bs.count / 2 * 15
+    bs.
   end
 
   def discount_for_e(skus)
@@ -58,5 +64,6 @@ class Checkout
   end
 
 end
+
 
 
