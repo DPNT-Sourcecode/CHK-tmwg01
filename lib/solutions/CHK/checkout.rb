@@ -1,13 +1,12 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
 
-  VALID_SKUS = ['A', 'B', 'C', 'D'].freeze
-
   def initialize
     @price_table = {
       'A' => 50,
       'B' => 30,
-      'C' => 20
+      'C' => 20,
+      'D' => 15
     }
   end
 
@@ -21,10 +20,15 @@ class Checkout
   private
 
   def invalid_skus?(skus)
-    skus.empty? || skus.select {|sku| !VALID_SKUS.include?(sku) }.count > 0
+    skus.empty? || skus.select {|sku| !@price_table.keys.include?(sku) }.count > 0
+  end
+
+  def sum(skus)
+
   end
 
 end
+
 
 
 

@@ -1,7 +1,7 @@
 require_solution 'CHK'
 
 describe Checkout do
-  subject { Checkout.new }
+  subject { Checkout.new.checkout(skus) }
 
   let(:skus) { 'ABCD' }
 
@@ -9,7 +9,7 @@ describe Checkout do
     let(:skus) { 'ABCDE' }
 
     it 'returns -1' do
-      expect(subject.checkout(skus)).to eq -1
+      expect(subject).to eq -1
     end
   end
 
@@ -17,7 +17,7 @@ describe Checkout do
     let(:skus) { 0 }
 
     it 'returns -1' do
-      expect(subject.checkout(skus)).to eq -1
+      expect(subject).to eq -1
     end
   end
 
@@ -25,9 +25,10 @@ describe Checkout do
     let(:skus) { nil }
 
     it 'returns -1' do
-      expect(subject.checkout(skus)).to eq -1
+      expect(subject).to eq -1
     end
   end
 
 end
+
 
