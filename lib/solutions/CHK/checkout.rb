@@ -51,7 +51,8 @@ class Checkout
   end
 
   def discounts(skus)
-    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus) + discount_for_k(skus)
+    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus) + discount_for_k(skus) \
+      + discount_for_n(skus)
   end
 
   def discount_for_a(skus)
@@ -124,6 +125,12 @@ class Checkout
     free_ms * @price_table['M']
   end
 
+  def discount_for_p(skus)
+    ps = skus.select {|sku| sku == 'P' }
+
+    ps.count / 50 * 50
+  end
 end
+
 
 
