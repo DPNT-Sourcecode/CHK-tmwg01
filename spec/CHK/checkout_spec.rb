@@ -73,6 +73,12 @@ describe Checkout do
     end
   end
 
+
+  context 'when there are 5 As' do
+    let(:skus) { 'AAA' }
+
+  end
+
   context 'when there is 2 Bs' do
     let(:skus) { 'BB' }
 
@@ -114,3 +120,4 @@ describe Checkout do
   end
 
 end
+
