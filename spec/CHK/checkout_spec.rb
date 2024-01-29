@@ -221,15 +221,7 @@ describe Checkout do
     let(:skus) { 'VVVVV' }
 
     it 'has a discount' do
-      expect(subject).to eq 120
+      expect(subject).to eq 220
     end
   end
 end
-
-
-
-
-
-
-
-
