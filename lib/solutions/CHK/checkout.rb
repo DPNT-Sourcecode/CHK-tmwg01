@@ -7,7 +7,7 @@ class Checkout
       'B' => 30,
       'C' => 20,
       'D' => 15,
-      'E' => 15,
+      'E' => 40,
     }
   end
 
@@ -40,12 +40,19 @@ class Checkout
   end
 
   def discount_for_b(skus)
-    as = skus.select {|sku| sku == 'B' }
+    bs = skus.select {|sku| sku == 'B' }
 
-    as.count / 2 * 15
+    bs.count / 2 * 15
+  end
+
+  def discount_for_e(skus)
+    es = skus.select {|sku| sku == 'E' }
+
+    es.count / 2 * 15
   end
 
 end
+
 
 
 
