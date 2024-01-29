@@ -10,7 +10,7 @@ describe Checkout do
   end
 
   context 'when skus has an invalid item' do
-    let(:skus) { 'ABCDZ' }
+    let(:skus) { 'ABCD0' }
 
     it 'returns -1' do
       expect(subject).to eq -1
@@ -170,6 +170,7 @@ describe Checkout do
   end
 
 end
+
 
 
 

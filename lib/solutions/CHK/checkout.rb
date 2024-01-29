@@ -95,7 +95,23 @@ class Checkout
   end
 
   def discount_for_h(skus)
-    as = skus.select {|sku| sku == 'H' }
+    hs = skus.select {|sku| sku == 'H' }
+
+    discount_groups = hs.each_slice(10).to_a
+
+    return 0 if discount_groups.count == 0
+
+    discount_groups.map do |group|
+      if group.size == 10
+        20
+      else
+        group.size / 5 * 5
+      end
+    end.sum
+  end
+
+  def discount_for_k(skus)
+    as = skus.select {|sku| sku == 'K' }
 
     discount_groups = as.each_slice(10).to_a
 
@@ -111,6 +127,7 @@ class Checkout
   end
 
 end
+
 
 
 
