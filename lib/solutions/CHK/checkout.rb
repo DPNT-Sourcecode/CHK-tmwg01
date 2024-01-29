@@ -14,7 +14,7 @@ class Checkout
     skus_list = skus && skus.is_a?(String) ? skus.chars : []
     return -1 if invalid_skus?(skus_list)
 
-    sum(skus_list)
+    sum(skus_list) || 0
   end
 
   private
@@ -30,14 +30,11 @@ class Checkout
   def discount_for_a(skus)
     as = skus.select {|sku| sku == 'A' }
 
-    return
-
-    0
-  end
-
+    as.count / 3 * 20
   end
 
 end
+
 
 
 

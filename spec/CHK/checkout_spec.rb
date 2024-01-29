@@ -33,7 +33,24 @@ describe Checkout do
     end
   end
 
+  context 'when skus is nil' do
+    let(:skus) { nil }
+
+    it 'returns -1' do
+      expect(subject).to eq -1
+    end
+  end
+
+  context 'when there is 3 As' do
+    let(:skus) { nil }
+
+    it 'has a discount' do
+      expect(subject).to eq -1
+    end
+  end
+
 end
+
 
 
 
