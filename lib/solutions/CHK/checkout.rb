@@ -170,9 +170,11 @@ class Checkout
   end
 
   def discount_for_multiproduct(skus)
+    discount_group = ['S', 'T', 'X', 'Y', 'Z']
 
   end
 end
+
 
 
 
