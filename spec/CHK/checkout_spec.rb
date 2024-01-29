@@ -5,6 +5,10 @@ describe Checkout do
 
   let(:skus) { 'ABCD' }
 
+  it 'sums the price of all items' do
+    expect(subject).to eq 115
+  end
+
   context 'when skus has an invalid item' do
     let(:skus) { 'ABCDE' }
 
@@ -30,5 +34,6 @@ describe Checkout do
   end
 
 end
+
 
 

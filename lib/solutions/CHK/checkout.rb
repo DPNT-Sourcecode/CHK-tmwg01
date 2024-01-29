@@ -14,7 +14,7 @@ class Checkout
     skus_list = skus && skus.is_a?(String) ? skus.chars : []
     return -1 if invalid_skus?(skus_list)
 
-    0
+    sum(skus_list)
   end
 
   private
@@ -24,10 +24,11 @@ class Checkout
   end
 
   def sum(skus)
-
+    skus.map {|sku| @price_table[sku]}.sum
   end
 
 end
+
 
 
 
