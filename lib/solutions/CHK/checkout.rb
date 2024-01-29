@@ -52,7 +52,7 @@ class Checkout
 
   def discounts(skus)
     discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus) + discount_for_k(skus) \
-      + discount_for_n(skus) + discount_for_p(skus) + discount_for_q(skus)
+      + discount_for_n(skus) + discount_for_p(skus) + discount_for_q(skus) + discount_for_r(skus)
   end
 
   def discount_for_a(skus)
@@ -141,10 +141,11 @@ class Checkout
     rs = skus.select {|sku| sku == 'R' }
     qs = skus.select {|sku| sku == 'Q' }
 
-    free_qs = qs.take(es.count / 3).count
+    free_qs = qs.take(rs.count / 3).count
     free_qs * @price_table['Q']
   end
 end
+
 
 
 
