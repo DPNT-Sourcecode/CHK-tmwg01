@@ -54,11 +54,3 @@ class Checkout
   end
 
 end
-
-
-
-
-
-
-
-
