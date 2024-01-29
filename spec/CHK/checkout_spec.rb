@@ -1,4 +1,4 @@
-require_solution 'HLO'
+require_solution 'CHK'
 
 describe Checkout do
   subject { Checkout.new }
@@ -8,10 +8,26 @@ describe Checkout do
   context 'when skus has an invalid item' do
     let(:skus) { 'ABCDE' }
 
-    it
-      expect(subject.checkuot(skus)).to eq -1
+    it 'returns -1' do
+      expect(subject.checkout(skus)).to eq -1
     end
   end
 
+  context 'when skus has an invalid type' do
+    let(:skus) { 0 }
+
+    it 'returns -1' do
+      expect(subject.checkout(skus)).to eq -1
+    end
+  end
+
+  context 'when skus is nil' do
+    let(:skus) { nil }
+
+    it 'returns -1' do
+      expect(subject.checkout(skus)).to eq -1
+    end
+  end
 
 end
+
