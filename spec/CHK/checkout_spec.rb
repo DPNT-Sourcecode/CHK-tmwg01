@@ -42,15 +42,19 @@ describe Checkout do
   end
 
   context 'when there is 3 As' do
-    let(:skus) { nil }
+    let(:skus) { 'AAA' }
 
     it 'has a discount' do
-      expect(subject).to eq -1
+      expect(subject).to eq 130
+    end
+
+    context 'when there is 6 As' do
+      let(:skus) { 'AAAAAA' }
+
+      it 'has a discount' do
+        expect(subject).to eq 260
+      end
     end
   end
 
 end
-
-
-
-

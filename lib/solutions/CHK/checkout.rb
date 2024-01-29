@@ -14,7 +14,7 @@ class Checkout
     skus_list = skus && skus.is_a?(String) ? skus.chars : []
     return -1 if invalid_skus?(skus_list)
 
-    sum(skus_list) || 0
+    (sum(skus_list) - discounts(skus_list)) || 0
   end
 
   private
@@ -27,6 +27,10 @@ class Checkout
     skus.map {|sku| @price_table[sku]}.sum
   end
 
+  def discounts(skus)
+    discount_for_a(skus)
+  end
+
   def discount_for_a(skus)
     as = skus.select {|sku| sku == 'A' }
 
@@ -34,11 +38,3 @@ class Checkout
   end
 
 end
-
-
-
-
-
-
-
-
