@@ -173,7 +173,17 @@ class Checkout
   def group_discount_offer(skus)
     discount_group = ['S', 'T', 'X', 'Y', 'Z']
 
-    skus.select {|sku| discount_group.include?(sku) }
+    filtered_products = skus.select {|sku| discount_group.include?(sku) }
 
+    discount_groups = vs.each_slice(3).to_a
+
+    discount_groups.map do |group|
+      if group.size == 3
+        group.map {|sku| @price_table[sku] }.sum - 45
+      else
+        0
+      end
+    end.sum
   end
 end
+
