@@ -188,7 +188,3 @@ class Checkout
     end.sum
   end
 end
-
-
-
-
