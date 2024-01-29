@@ -9,4 +9,3 @@ describe Hello do
     expect(subject.hello(friend_name)).to eq "Hello, #{friend_name}!"
   end
 end
-

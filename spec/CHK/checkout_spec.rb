@@ -1,11 +1,17 @@
 require_solution 'HLO'
 
 describe Checkout do
-  subject { Hello.new }
+  subject { Checkout.new }
 
-  let(:friend_name) {  }
+  let(:skus) { 'ABCD' }
 
-  it "says hello to the world" do
-    expect(subject.hello(friend_name)).to eq "Hello, #{friend_name}!"
+  context 'when skus has an invalid item' do
+    let(:skus) { 'ABCDE' }
+
+    it
+      expect(subject.checkuot(skus)).to eq -1
+    end
   end
+
+
 end
