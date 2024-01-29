@@ -202,13 +202,14 @@ describe Checkout do
   end
 
   context 'when SKU is R' do
-    let(:skus) { 'RRRQQQQ' }
+    let(:skus) { 'RRRQQQ' }
 
     it 'has a free Q every 3 items' do
-      expect(subject).to eq 180
+      expect(subject).to eq 210
     end
   end
 end
+
 
 
 
