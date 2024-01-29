@@ -28,11 +28,17 @@ class Checkout
   end
 
   def discount_for_a(skus)
+    as = skus.select {|sku| sku == 'A' }
+
+    return
+
+    0
   end
 
   end
 
 end
+
 
 
 
