@@ -174,8 +174,10 @@ class Checkout
     discount_group = ['S', 'T', 'X', 'Y', 'Z']
 
     filtered_products = skus.select {|sku| discount_group.include?(sku) }
+    sorted_filtered_products = filtered_products.sort { | a,b| @price_table[b] <=> @price_table[a] }
 
-    discount_groups = filtered_products.each_slice(3).to_a
+
+    discount_groups = sorted_filtered_products.each_slice(3).to_a
 
     discount_groups.map do |group|
       if group.size == 3
@@ -186,6 +188,7 @@ class Checkout
     end.sum
   end
 end
+
 
 
 

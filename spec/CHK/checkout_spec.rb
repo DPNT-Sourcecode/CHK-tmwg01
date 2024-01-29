@@ -229,7 +229,7 @@ describe Checkout do
   context 'when SKU is in the group S,T,X,Y,Z' do
     let(:skus) { 'SSSZ' }
 
-    it 'has 3 items for 65' do
+    it 'has 3 items with highest price for 45' do
       expect(subject).to eq 65
     end
 
@@ -238,6 +238,7 @@ describe Checkout do
     end
   end
 end
+
 
 
 
