@@ -103,9 +103,18 @@ describe Checkout do
     it 'has a discount' do
       expect(subject).to eq 80
     end
+
+    context 'when there are 2 Es and 0 Bs' do
+      let(:skus) { 'EE' }
+
+      it 'has a discount' do
+        expect(subject).to eq 80
+      end
+    end
   end
 
 end
+
 
 
 
