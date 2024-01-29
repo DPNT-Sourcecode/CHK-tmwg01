@@ -5,7 +5,7 @@ class Checkout
 
   def checkout(skus)
     skus_list = skus && skus.is_a?(String) ? skus.chars : []
-    return -1 if invalid_skus?(skus)
+    return -1 if invalid_skus?(skus_list)
 
     0
   end
@@ -13,8 +13,9 @@ class Checkout
   private
 
   def invalid_skus?(skus)
-    false
+    skus.select {|sku| !VALID_SKUS.include?(sku) }.count > 0
   end
 
 end
+
 
