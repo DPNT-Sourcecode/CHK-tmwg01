@@ -9,6 +9,26 @@ class Checkout
       'D' => 15,
       'E' => 40,
       'F' => 10,
+      'G' => 20,
+      'H' => 10,
+      'I' => 35,
+      'J' => 60,
+      'K' => 80,
+      'L' => 90,
+      'M' => 15,
+      'N' => 40,
+      'O' => 10,
+      'P' => 50,
+      'Q' => 30,
+      'R' => 50,
+      'S' => 30,
+      'T' => 20,
+      'U' => 40,
+      'V' => 50,
+      'W' => 20,
+      'X' => 90,
+      'Y' => 10,
+      'Z' => 50,
     }
   end
 
@@ -31,7 +51,7 @@ class Checkout
   end
 
   def discounts(skus)
-    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus)
+    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus)
   end
 
   def discount_for_a(skus)
@@ -74,6 +94,23 @@ class Checkout
     free_bs * @price_table['F']
   end
 
+  def discount_for_h(skus)
+    as = skus.select {|sku| sku == 'A' }
+
+    discount_groups = as.each_slice(5).to_a
+
+    return 0 if discount_groups.count == 0
+
+    discount_groups.map do |group|
+      if group.size == 5
+        50
+      else
+        group.size / 3 * 20
+      end
+    end.sum
+  end
+
 end
+
 
 
