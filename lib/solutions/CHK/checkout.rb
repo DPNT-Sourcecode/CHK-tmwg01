@@ -52,7 +52,7 @@ class Checkout
   def discount_for_b(skus)
     bs = skus.select {|sku| sku == 'B' }
 
-    bs.
+    bs.count / 2 * 15
   end
 
   def discount_for_e(skus)
@@ -64,6 +64,7 @@ class Checkout
   end
 
 end
+
 
 
 
