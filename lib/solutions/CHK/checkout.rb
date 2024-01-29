@@ -136,7 +136,16 @@ class Checkout
 
     qs.count / 3 * 10
   end
+
+  def discount_for_r(skus)
+    rs = skus.select {|sku| sku == 'R' }
+    qs = skus.select {|sku| sku == 'Q' }
+
+    free_qs = qs.take(es.count / 3).count
+    free_qs * @price_table['Q']
+  end
 end
+
 
 
 
