@@ -208,7 +208,16 @@ describe Checkout do
       expect(subject).to eq 210
     end
   end
+
+  context 'when SKU is U' do
+    let(:skus) { 'UUUU' }
+
+    it 'has a free U every 3 items' do
+      expect(subject).to eq 120
+    end
+  end
 end
+
 
 
 

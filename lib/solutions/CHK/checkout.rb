@@ -90,7 +90,6 @@ class Checkout
   def discount_for_f(skus)
     fs = skus.select {|sku| sku == 'F' }
 
-
     free_bs = fs.size / 3
     free_bs * @price_table['F']
   end
@@ -150,9 +149,11 @@ class Checkout
   def discount_for_u(skus)
     us = skus.select {|sku| sku == 'U' }
 
-    ps.count / 5 * 50
+    free_us = us.size / 4
+    free_us * @price_table['U']
   end
 end
+
 
 
 
