@@ -27,7 +27,13 @@ class Checkout
     skus.map {|sku| @price_table[sku]}.sum
   end
 
+  def discount_for_a(skus)
+  end
+
+  end
+
 end
+
 
 
 
