@@ -119,9 +119,18 @@ describe Checkout do
         expect(subject).to eq 80
       end
     end
+
+    context 'when there are 4 Es and 2 Bs' do
+      let(:skus) { 'EEEEBB' }
+
+      it 'has a discount' do
+        expect(subject).to eq 80
+      end
+    end
   end
 
 end
+
 
 
 
