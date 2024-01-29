@@ -116,5 +116,14 @@ class Checkout
     ks.count / 2 * 10
   end
 
+  def discount_for_n(skus)
+    ns = skus.select {|sku| sku == 'N' }
+    ms = skus.select {|sku| sku == 'M' }
+
+    free_ms = ms.take(ns.count / 3).count
+    free_ms * @price_table['M']
+  end
+
 end
+
 
