@@ -17,6 +17,14 @@ describe Checkout do
     end
   end
 
+  context 'when skus is empty' do
+    let(:skus) { '' }
+
+    it 'returns 0' do
+      expect(subject).to eq 0
+    end
+  end
+
   context 'when skus has an invalid type' do
     let(:skus) { 0 }
 
@@ -90,4 +98,5 @@ describe Checkout do
   end
 
 end
+
 

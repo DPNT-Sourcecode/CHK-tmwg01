@@ -12,6 +12,7 @@ class Checkout
 
   def checkout(skus)
     skus_list = skus && skus.is_a?(String) ? skus.chars : []
+    return 0 if skus == ''
     return -1 if invalid_skus?(skus_list)
 
     (sum(skus_list) - discounts(skus_list)) || 0
@@ -44,4 +45,5 @@ class Checkout
   end
 
 end
+
 
