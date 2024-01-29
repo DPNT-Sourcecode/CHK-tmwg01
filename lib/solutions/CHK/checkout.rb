@@ -36,7 +36,9 @@ class Checkout
   def discount_for_a(skus)
     as = skus.select {|sku| sku == 'A' }
 
-    5_as_discount = as.count / 5 * 50
+    discount_groups = as.each_slice(5).to_a
+
+    return 0 if discount_groups.count == 0
 
     as.count / 3 * 20
   end
@@ -56,4 +58,5 @@ class Checkout
   end
 
 end
+
 
