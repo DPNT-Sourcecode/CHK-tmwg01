@@ -51,7 +51,7 @@ class Checkout
   end
 
   def discounts(skus)
-    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus)
+    discount_for_a(skus) + discount_for_b(skus) + discount_for_e(skus) + discount_for_f(skus) + discount_for_h(skus) + discount_for_k(skus)
   end
 
   def discount_for_a(skus)
@@ -113,7 +113,8 @@ class Checkout
   def discount_for_k(skus)
     ks = skus.select {|sku| sku == 'K' }
 
-    (ks.count) / 2 * 10
+    ks.count / 2 * 10
   end
 
 end
+
